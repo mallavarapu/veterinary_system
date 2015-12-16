@@ -2,6 +2,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :pet
   belongs_to :doctor
   # Validations
+  validates :doctor, :pet, presence: true
   validates :visit_date, :visit_reason, presence: true
   # Custom validation to check if visit date is in the past
   validate :visit_date_in_future

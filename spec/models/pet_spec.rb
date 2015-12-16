@@ -12,7 +12,7 @@ describe Pet, type: :model do
       end
     end
 
-    ["age", "weight", "pet_type", "last_visit"].each do |attr|
+    ["customer_id", "age", "weight", "pet_type", "last_visit"].each do |attr|
       it "raises an error for an empty #{attr}" do
         expect {create(:pet, attr.to_sym => nil)}.to raise_error ActiveRecord::RecordInvalid
       end

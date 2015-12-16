@@ -6,5 +6,6 @@ class Pet < ActiveRecord::Base
   validates :name, :breed, presence: true, length: { maximum: 35 }
   validates :pet_type, presence: true, inclusion: { in: %w(dog cat bird) }
   validates :age, :weight, :last_visit, presence: true
+  validates :customer, presence: true
   PET_TYPES = ['dog', 'cat', 'bird']
 end

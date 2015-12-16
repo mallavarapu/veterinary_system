@@ -8,7 +8,7 @@ class Appointment < ActiveRecord::Base
 
   private
   def visit_date_in_future
-    if visit_date < Date.today
+    if visit_date && visit_date < Date.today
       errors.add(:visit_date, "Appointment date cannot be in the past")
     end
   end

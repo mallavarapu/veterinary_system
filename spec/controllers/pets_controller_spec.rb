@@ -6,14 +6,15 @@ describe PetsController, type: :controller do
     context "with valid attributes" do
       before {
         @customer = create(:customer)
-        post :create, customer_id: @customer.id, pet: attributes_for(:pet)
+        post :create, customer_id: @customer.id, pet: attributes_for(:pet, 
+                                                                     customer_id: @customer.id)
       }
       it "creates a new pet" do
         expect(@customer.pets.count).to eq 1
       end
 
       it "redirects to the pet page" do
-        expect(response).to redirect_to [@customer, Pet.first]
+        expect(response).to redirect_to [@customer, @customer.pets.first]
       end
     end
 
@@ -23,7 +24,7 @@ describe PetsController, type: :controller do
         post :create, customer_id: @customer.id, pet: attributes_for(:pet, name: nil)
       }
       it "does not create a new pet" do
-        expect(Pet.count).to eq 0
+        expect(@customer.pets.count).to eq 0
       end
 
       it "renders the new template" do

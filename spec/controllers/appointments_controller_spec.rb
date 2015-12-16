@@ -8,7 +8,9 @@ describe AppointmentsController, type: :controller do
         @doctor = create(:doctor)
         @customer = create(:customer)
         @pet = create(:pet, customer_id: @customer.id)
-        post :create, customer_id: @customer.id, doctor_id: @doctor.id, pet_id: @pet.id, appointment: attributes_for(:appointment)
+        post :create, customer_id: @customer.id, doctor_id: @doctor.id, 
+          pet_id: @pet.id, appointment: attributes_for(:appointment, 
+                                                       doctor_id: @doctor.id, pet_id: @pet.id)
       }
       it "creates a new appointment" do
         expect(@pet.appointments.count).to eq 1
@@ -25,7 +27,9 @@ describe AppointmentsController, type: :controller do
         @customer = create(:customer)
         @pet = create(:pet, customer_id: @customer.id)
         post :create, customer_id: @customer.id, doctor_id: @doctor.id, pet_id: @pet.id,
-          appointment: attributes_for(:appointment, visit_date: Date.today - 1)
+          appointment: attributes_for(:appointment, 
+                                      doctor_id: @doctor.id, pet_id: @pet.id, 
+                                      visit_date: Date.today - 1)
       }
       it "does not create a new appointment" do
         expect(@pet.appointments.count).to eq 0

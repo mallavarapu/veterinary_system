@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-5">
+    <h1>Doctors</h1>
+    <ul class="list-group">
+      <% @doctors.each do |doctor| %>
+        <li class="list-group-item">
+          <%= link_to doctor.name, doctor_path(doctor.id) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

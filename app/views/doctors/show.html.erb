@@ -1,7 +1,13 @@
 <div class="row">
   <div class="col-md-8">
-    <h1>Doctor information</h1>
-    <p class="lead"><strong>Name: </strong><%= @doctor.name.titleize%></p>
-    <p class="lead"><strong>Address: </strong><%= @doctor.name.titleize%></p>
+    <div class="doctor-info">
+      <h1>Doctor information</h1>
+      <p class="lead"><strong>Name: </strong><%= @doctor.name.titleize%></p>
+      <p class="lead"><strong>Address: </strong><%= @doctor.address %></p>
+      <p class="lead"><strong>City: </strong><%= @doctor.city.titleize%></p>
+      <p class="lead"><strong>State: </strong><%= @doctor.state.titleize%></p>
+      <p class="lead"><strong>Zip: </strong><%= @doctor.zip %></p>
+      <p class="lead"><strong>Experience: </strong><%= @doctor.years_of_practice%> years</p>
+    </div>
   </div>
 </div>

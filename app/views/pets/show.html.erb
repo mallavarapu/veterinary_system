@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="doctor-info">
+      <h1>Pet information</h1>
+      <p class="lead"><strong>Name: </strong><%= @pet.name.titleize%></p>
+      <p class="lead"><strong>Pet type: </strong><%= @pet.pet_type %></p>
+      <p class="lead"><strong>Breed: </strong><%= @pet.breed%></p>
+      <p class="lead"><strong>Age: </strong><%= @pet.age%></p>
+      <p class="lead"><strong>Weight: </strong><%= @pet.weight%> pounds</p>
+      <p class="lead"><strong>Last visit: </strong><%= @pet.last_visit%></p>
+    </div>
+    <div class="appointments">
+      <h2>Appointments</h2>
+      <ul class="list-group">
+        <% @pet.appointments.each do |appointment| %>
+          <li class="list-group-item">
+            <%= link_to appointment.visit_date, customer_pet_appointment_path(@customer, @pet, appointment) %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to 'Schedule appointment', new_customer_pet_appointment_path(@customer, @pet), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

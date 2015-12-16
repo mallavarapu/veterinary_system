@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-5">
+    <div class="doctor-info">
+      <h1>Customer information</h1>
+      <p class="lead"><strong>Name: </strong><%= @customer.name.titleize%></p>
+      <p class="lead"><strong>Email: </strong><%= @customer.email %></p>
+    </div>
+    <div class="pets">
+      <h2>Pets</h2>
+      <ul class="list-group">
+        <% @customer.pets.each do |pet| %>
+          <li class="list-group-item">
+            <%= link_to pet.name, [@customer, pet] %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "New pet", new_customer_pet_path(@customer), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

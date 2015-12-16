@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-5">
+    <h1>New Appointment</h1>
+    <%= form_for [@customer, @pet, @appointment] do |f| %>
+      <div class="form-group">
+        <%= f.label 'Doctor' %>
+        <%= f.select :doctor_id, options_for_select(@doctors), {}, {class: "form-control"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label 'Appointment date' %>
+        <%= f.text_field :visit_date, required: true, value: Date.today, type: 'date', min: Date.today, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label 'Reason for visit' %>
+        <%= f.text_field :visit_reason, required: true, placeholder: "Reason for visit", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :requires_reminder do %>
+        <%= f.check_box :requires_reminder %>
+        Reminder
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Create', class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

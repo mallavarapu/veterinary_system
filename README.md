@@ -8,15 +8,28 @@ This is a basic RoR application for a veterinary system tracking doctors, custom
 * ruby-2.2.0
 * rails 4.2.0
 
-### Setup ###
+### Instructions ###
+* Install rvm
 
-    \curl -sSL https://get.rvm.io | bash # Installs rvm
-    rvm install 2.2.0 # Installs ruby 2.2.0
-    gem install bundler # Installs bundler
-    cd veterinary_system # cd into the project dir. rvm should switch to ruby 2.2.0 and create a gemset by the name 'veterinary_system'
-    bundle install # Install gems listed in the Gemfile (and dependencies)
-    bundle exec rake db:setup # Creates database, loads schema and seeds the database. *** Make sure to add the appropriate database credentials in config/database.yml ***
-    bundle exec rails s 
-### How to run the tests? ###
+        \curl -sSL https://get.rvm.io | bash
+* Install ruby 2.2.0        
+ 
+        rvm install 2.2.0
+* Install bundler
+    
+        gem install bundler
+* cd into the project directory. rvm should switch to ruby 2.2.0 and create a gemset by the name 'veterinary_system'
 
-    bundle exec rake spec
+        cd veterinary_system
+* Install gems listed in the Gemfile (and dependencies)
+
+        bundle install
+* Create database, load schema and seed the database. *** Make sure to add the appropriate database credentials in config/database.yml ***
+        
+        bundle exec rake db:setup
+* Run the application
+    
+        bundle exec rails s 
+* Run the rspec specs
+
+        bundle exec rake spec
